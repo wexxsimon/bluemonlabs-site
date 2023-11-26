@@ -7,13 +7,13 @@ const Products = (): ReactElement => {
       className="flex flex-col md:flex-row xl:flex-wrap md:h-[160px]
     md:pl-0 xl:pl-20 bg-persian-blue-800 overflow-hidden"
     >
-      <div className="md:w-[60%] md:px-2 xl:px-6 self-center">
+      <div className="md:w-[60%] px-4 md:px-2 xl:px-6 self-center">
         <ul
           className="flex content-center flex-row flex-wrap justify-around
-        md:justify-around xl:justify-evenly md:items-center text-white-100
-        uppercase md:gap-0 xl:mr-0 mb-8 md:mb-0 md:ml-0 xl:ml-12"
+        md:justify-around xl:justify-between md:items-center text-persian-blue-100
+        uppercase md:gap-0 xl:mr-10 mb-8 md:mb-0 md:ml-0 xl:ml-12"
         >
-          <li className="w-[150px] md:w-[96px] flex md:flex-col mt-8 md:mt-0">
+          <li className="w-[160px] md:w-[96px] flex md:flex-col mt-8 md:mt-0">
             <Image
               src="/assets/images/icons/icon-idea.svg"
               className="mr-1 md:mx-0"
@@ -87,7 +87,7 @@ const Products = (): ReactElement => {
         className="
         flex content-center
         md:w-[40%] bg-persian-blue-950
-        px-8 py-10 md:py-4"
+        px-6 md:px-10 py-10 md:py-4"
       >
         <ul
           className="
@@ -98,7 +98,7 @@ const Products = (): ReactElement => {
           <li className="md:w-[150px] flex">
             <p
               className="mt-3 font-acumincondensed-300
-              text-xs text-white-100 uppercase
+              text-xs text-persian-blue-100 uppercase
               leading-relaxed"
             >
               Design
@@ -109,7 +109,7 @@ const Products = (): ReactElement => {
           <li className="md:w-[150px] flex">
             <p
               className="mt-3 font-acumincondensed-300 text-xs
-             text-white-100 uppercase leading-relaxed"
+             text-persian-blue-100 uppercase leading-relaxed"
             >
               Desenvolvimento <br />
               <span className="text-persian-blue-300">Web</span>

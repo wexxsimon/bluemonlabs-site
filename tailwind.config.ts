@@ -22,6 +22,9 @@ const config: Config = {
         'italic': 'italic',
         'semibold': 'semibold'
       },
+      fontSize: {
+        'xs': '0.68rem;'
+      },
       borderWidth: {
         '1': '1px',
         '2': '2px',

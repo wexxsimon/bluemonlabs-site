@@ -9,16 +9,12 @@ const Footer = (): ReactElement => {
     { href: '/portfolio', text: 'Portfólio' },
     { href: '/carreiras', text: 'Carreiras' },
     { href: '/contato', text: 'Contato' },
-    { href: '/politica-de-privacidade', text: 'Política de Privacidade' },
-    { href: '/termos-de-servico', text: 'Termos de Serviço' },
     { href: '/blog', text: 'Blog' },
-    { href: '/faq', text: 'FAQ' },
     { href: '/clientes', text: 'Nossos Clientes' },
-    { href: '/testemunhos', text: 'Testemunhos' },
     { href: '/parceiros', text: 'Parceiros' },
     { href: '/imprensa', text: 'Imprensa' },
     { href: '/eventos', text: 'Eventos' },
-    { href: '/doacoes', text: 'Doações' }
+    { href: '/projetos', text: 'Serviço Social' }
   ]
 
   return (
@@ -26,10 +22,10 @@ const Footer = (): ReactElement => {
       row={false}
       paddingX
       paddingY={false}
-      className="bg-persian-blue-950 justify-start"
+      className="bg-persian-blue-950 justify-start border-t-8 border-t-persian-blue-700"
     >
-      <footer className="md:flex md:flex-row justify-between mx-24 border-b-1 mt-14 border-persian-blue-900 h-auto md:h-[190px]">
-        <div className="md:w-1/4 text-xs text-white-100 pr-6">
+      <footer className="md:flex md:flex-row justify-between mx-0 md:mx-24 border-b-1 pt-14 pb-4 border-persian-blue-900 content md:h-[284px]">
+        <div className="md:w-1/4 text-xs text-white-100 md:pr-6">
           <a className="" href="#!">
             <Image
               src="/assets/images/logo-bluemoonlabs.webp"
@@ -38,31 +34,31 @@ const Footer = (): ReactElement => {
               height="28"
             />
           </a>
-          <p className="mt-2">Publicidade e Marketing Digital</p>
-          <p className="leading-relaxed mt-4">
-            Somos uma consultoria de transformação digital que utiliza as
-            ferramentas e tecnologias avançadas para implementar estratégias
+          <p className="mt-2 text-persian-blue-100">Publicidade e Marketing Digital</p>
+          <p className="leading-5 mt-4 md:mt-5 text-left text-persian-blue-100">
+            Somos uma consultoria de transformação digital que utiliza
+            ferramentas e tecnologias modernas para implementar estratégias
             inovadoras e criativas
           </p>
         </div>
-        <div className="md:w-2/4">
-          <ul className="flex flex-row w-full flex-wrap list-unstyled text-white-100 text-xs">
+        <div className="md:w-2/4 mt-12 md:mt-0">
+          <ul className="flex flex-row w-full flex-wrap list-unstyled text-persian-blue-100 text-xs">
             {links.map((link) => (
-              <li className="h-20px w-1/3 mb-1" key={link.href}>
+              <li className="h-[25px]  w-1/2 md:w-1/3 my-1" key={link.href}>
                 <a href={link.href}>{link.text}</a>
               </li>
             ))}
           </ul>
         </div>
-        <div className="md:w-3/2">
-          <ul className="flex flex-row justify-end gap-6">
+        <div className="md:w-3/2 pt-12 md:pt-0 pb-3">
+          <ul className="flex flex-row justify-start md:justify-end gap-6">
             <li className="nav-item">
               <a className="nav-link link-dark" href="#!">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="35"
                   height="35"
-                  fill="#ffffff"
+                  fill="#ecf3ff"
                   className="bi bi-youtube"
                   viewBox="0 0 48 48"
                 >
@@ -76,7 +72,7 @@ const Footer = (): ReactElement => {
                   xmlns="http://www.w3.org/2000/svg"
                   width="35"
                   height="35"
-                  fill="#ffffff"
+                  fill="#ecf3ff"
                   className="bi bi-youtube"
                   viewBox="0 0 48 48"
                 >
@@ -87,9 +83,9 @@ const Footer = (): ReactElement => {
           </ul>
         </div>
       </footer>
-      <div className="flex flex-row pt-3 h-[84px] justify-center">
-        <span className="text-xs text-white-100 self-center">
-          Blue Moon Labs - Todos os direitos Reservados - 2023
+      <div className="flex flex-col pt-3 h-[84px] justify-start">
+        <span className="text-[0.68rem] text-persian-blue-900 self-center mt-2">
+          Blue Moon Labs - 2023
         </span>
       </div>
     </Container>

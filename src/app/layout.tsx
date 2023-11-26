@@ -21,7 +21,7 @@ export default function RootLayout ({
     <html lang="pt-br">
       <body className={inter.className}>
         <Menu />
-        <main>{children}</main>
+        {children}
         <Footer />
       </body>
     </html>

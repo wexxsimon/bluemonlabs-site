@@ -20,7 +20,7 @@ export default function Method (): ReactElement {
           ></div>
         </div>
         <div className="md:w-[65%] px-6 md:px-12 xl:px-24">
-          <div className="w-full md:max-w-[437px] mb-6 md:mt-12 xl:mt-24">
+          <div className="w-full md:max-w-[437px] md:mb-6 md:mt-12 xl:mt-24">
             <h3 className=" text-persian-blue-950 leading-tight text-2xl sm:max-w-[350px] md:max-w-[400px] md:text-3xl font-acumin font-semibold">
               Acompanhamos a trajetória dos seus negócios
             </h3>
@@ -33,15 +33,15 @@ export default function Method (): ReactElement {
           <div className="md:mt-16">
             <ul
               className="flex content-center flex-row flex-wrap justify-start
-                 md:justify-between uppercase xl:mr-0 mb-0 md:ml-0 md:max-w-[600px] xl:max-w-[700px]"
+                 md:justify-between uppercase px-4 xl:mr-0 mb-0 md:ml-0 md:max-w-[600px] xl:max-w-[700px]"
             >
               <li
-                className="w-[130px] md:w-[150px] flex flex-col md:flex-row
+                className="w-[150px] flex flex-row
                     mr-2 md:mr-5 md:mb-5 xl:mr-0 md:items-center mt-8 md:mt-0"
               >
                 <Image
                   src="/assets/images/icons/icon-trip-60x61.webp"
-                  className="mr-1 md:mx-0"
+                  className="mr-3 md:mr-1"
                   alt=""
                   width={40}
                   height={40}
@@ -55,10 +55,10 @@ export default function Method (): ReactElement {
                   <span>do Cliente</span>
                 </p>
               </li>
-              <li className="w-[130px] md:w-[150px] flex flex-col md:flex-row mr-2 md:mr-5 md:mb-5 xl:mr-0 md:items-center mt-8 md:mt-0">
+              <li className="w-[150px] flex flex-row mr-2 md:mr-5 md:mb-5 xl:mr-0 md:items-center mt-8 md:mt-0">
                 <Image
                   src="/assets/images/icons/icon-pack-60x61.webp"
-                  className="mr-1 md:mx-0"
+                  className="mr-3 md:mr-1"
                   alt=""
                   width={40}
                   height={40}
@@ -73,12 +73,12 @@ export default function Method (): ReactElement {
                 </p>
               </li>
               <li
-                className="w-[130px] md:w-[150px]
-                      flex flex-col md:flex-row mr-2 md:mr-5 md:mb-5 xl:mr-0 md:items-center mt-8 md:mt-0"
+                className="w-[150px]
+                      flex flex-row mr-2 md:mr-5 md:mb-5 xl:mr-0 md:items-center mt-8 md:mt-0"
               >
                 <Image
                   src="/assets/images/icons/icon-otimization-60x61.webp"
-                  className="mr-1 md:mx-0"
+                  className="mr-3 md:mr-1"
                   alt=""
                   width={40}
                   height={40}

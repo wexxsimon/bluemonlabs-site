@@ -44,8 +44,8 @@ const Packs = (): ReactElement => {
   return (
     <Container
       row={false}
-      paddingX={true}
-      paddingY={true}
+      paddingX
+      paddingY
       className=" bg-white-100"
     >
       <div className="flex flex-col items-center">
@@ -58,7 +58,7 @@ const Packs = (): ReactElement => {
           jornada.
         </p>
       </div>
-      <div className="flex flex-col md:flex-row md:gap-6 mt-12 justify-center">
+      <div className="flex flex-col md:flex-row gap-4 md:gap-6 mt-12 justify-center">
         {array.map((item, index) => (
           <Card
             title={item.title}

@@ -8,10 +8,10 @@ const Partners = (): ReactElement => {
       row
       paddingX={false}
       paddingY={false}
-      className="h-[430px] md:h-[650px] bg-persian-blue-950"
+      className="h-[467px] md:h-[650px] bg-persian-blue-950"
     >
       <div className="md:w-[35%] px-2 xl:px-16 self-center">
-        <div className="w-full md:max-w-[437px] mb-6 md:mt-12 px-6 xl:mt-24">
+        <div className="flex flex-col items-start w-full md:max-w-[300px] md:h-[341px] mb-6 md:mb-0 md:ml-14 px-6">
           <h3 className=" text-white-100 leading-tight uppercase text-2xl max-w-[250px] md:max-w-[311px] md:text-3xl font-acumin font-semibold">
             Navegando Juntos
           </h3>
@@ -21,7 +21,7 @@ const Partners = (): ReactElement => {
             desafios, entregar ótimos resultados para construir relacionamentos
             duradouros.
           </p>
-          <Button border={false} width={'168px'} href="/">
+          <Button className="block mt-6" outline dark={false} width={'168px'} href="/">
             Quero saber mais
           </Button>
         </div>

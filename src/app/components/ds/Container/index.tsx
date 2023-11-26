@@ -21,7 +21,7 @@ const Container = ({
     flex flex-col md:flex-wrap justify-end
     ${row ? 'md:flex-row' : ''}
     ${paddingX ? 'px-6 md:px-12' : 'px-0'}
-    ${paddingY ? 'pt-36 pb-36 md:pt-20 md:pb-2' : 'py-0'}
+    ${paddingY ? 'pt-16 pb-8 md:pt-20 md:pb-2' : 'py-0'}
     ${className}
     `}
     >
