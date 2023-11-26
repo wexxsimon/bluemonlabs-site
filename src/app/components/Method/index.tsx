@@ -1,7 +1,7 @@
 import { type ReactElement } from 'react'
 import Image from 'next/image'
 
-export default function Method(): ReactElement {
+export default function Method (): ReactElement {
   return (
     <section
       className="

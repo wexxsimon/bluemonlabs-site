@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   description: 'Tranformação digital para pequenas e médias empresas.'
 }
 
-export default function RootLayout({
+export default function RootLayout ({
   children
 }: {
   children: React.ReactNode

@@ -5,7 +5,7 @@ import Method from './components/Method'
 import Packs from './components/Packs'
 import Partners from './components/Partners'
 
-export default function Home(): ReactElement {
+export default function Home (): ReactElement {
   return (
     <main>
       <Hero />
