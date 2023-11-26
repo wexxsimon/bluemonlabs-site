@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "acumin-pro";
+  src: url("https://use.typekit.net/bps5bmw.css") format("woff2"),
+    url("https://use.typekit.net/bps5bmw.css") format("woff");
+  font-weight: 300 400 500 600 700;
+  font-style: normal italic;
+}
+
+.custom-li::before {
+  content: "";
+  display: block;
+  height: 30px;
+  width: 30px;
+  margin-right: 10px;
+  background-image: url("/assets/images/icons/bullet-start-light.webp");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
