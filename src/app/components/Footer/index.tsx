@@ -24,7 +24,7 @@ const Footer = (): ReactElement => {
       paddingY={false}
       className="bg-persian-blue-950 justify-start border-t-8 border-t-persian-blue-700"
     >
-      <footer className="md:flex md:flex-row justify-between mx-0 md:mx-24 border-b-1 pt-14 pb-4 border-persian-blue-900 content md:h-[284px]">
+      <footer className="md:flex md:flex-row justify-between mx-0 md:mx-24 border-b-1 pt-14 pb-4 border-persian-blue-900 content">
         <div className="md:w-1/4 text-xs text-white-100 md:pr-6">
           <a className="" href="#!">
             <Image
@@ -35,14 +35,14 @@ const Footer = (): ReactElement => {
             />
           </a>
           <p className="mt-2 text-persian-blue-100">Publicidade e Marketing Digital</p>
-          <p className="leading-5 mt-4 md:mt-5 text-left text-persian-blue-100">
+          <p className="hidden leading-5 mt-4 md:mt-5 text-left text-persian-blue-100">
             Somos uma consultoria de transformação digital que utiliza
             ferramentas e tecnologias modernas para implementar estratégias
             inovadoras e criativas
           </p>
         </div>
         <div className="md:w-2/4 mt-12 md:mt-0">
-          <ul className="flex flex-row w-full flex-wrap list-unstyled text-persian-blue-100 text-xs">
+          <ul className="hidden flex-row w-full flex-wrap list-unstyled text-persian-blue-100 text-xs">
             {links.map((link) => (
               <li className="h-[25px]  w-1/2 md:w-1/3 my-1" key={link.href}>
                 <a href={link.href}>{link.text}</a>
@@ -85,7 +85,7 @@ const Footer = (): ReactElement => {
       </footer>
       <div className="flex flex-col pt-3 h-[84px] justify-start">
         <span className="text-[0.68rem] text-persian-blue-900 self-center mt-2">
-          Blue Moon Labs - 2023
+          Blue Moon Labs - 2024
         </span>
       </div>
     </Container>
