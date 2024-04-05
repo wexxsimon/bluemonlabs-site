@@ -73,7 +73,7 @@ export default function Menu (): ReactElement {
             <div className="overflow-hidden overflow-y-auto max-h-[75vh] [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-track]:bg-slate-700 dark:[&::-webkit-scrollbar-thumb]:bg-slate-500">
               <div className="flex flex-col gap-x-0 mt-5 divide-y divide-dashed divide-gray-200 md:flex-row md:items-center md:justify-end md:gap-x-7 md:mt-0 md:ps-7 md:divide-y-0 md:divide-solid dark:divide-gray-700">
                 <a
-                  className="font-acumin-300 text-xs text-persian-blue-100 py-3 md:py-6 hover:text-persian-blue-300 hover:animate-pulse"
+                  className="hidden font-acumin-300 text-xs text-persian-blue-100 py-3 md:py-6 hover:text-persian-blue-300 hover:animate-pulse"
                   href="#"
                   aria-current="page"
                 >
@@ -81,13 +81,13 @@ export default function Menu (): ReactElement {
                 </a>
 
                 <a
-                  className="font-acumin-300 text-xs text-persian-blue-100 hover:text-persian-blue-300 hover:animate-pulse py-3 md:py-6 dark:text-persian-blue-100 dark:hover:text-persian-blue-100 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                  className=" hidden font-acumin-300 text-xs text-persian-blue-100 hover:text-persian-blue-300 hover:animate-pulse py-3 md:py-6 dark:text-persian-blue-100 dark:hover:text-persian-blue-100 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
                   href="#"
                 >
                   Contato
                 </a>
 
-                <div className="hs-dropdown [--strategy:static] md:[--strategy:absolute] [--adaptive:none] md:[--trigger:hover] py-3 md:py-4">
+                <div className="hidden hs-dropdown [--strategy:static] md:[--strategy:absolute] [--adaptive:none] md:[--trigger:hover] py-3 md:py-4">
                   <button
                     type="button"
                     className="flex items-center w-full font-acumin-300 text-xs text-persian-blue-100 hover:text-persian-blue-300 hover:animate-pulse font-medium "
@@ -360,7 +360,7 @@ export default function Menu (): ReactElement {
                       height={20}
                       alt=""
                     />
-                    61 - 99273 2811
+                    61 - 9141 2503
                   </a>
                 </div>
               </div>
