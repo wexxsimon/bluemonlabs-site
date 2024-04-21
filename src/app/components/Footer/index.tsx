@@ -51,9 +51,9 @@ const Footer = (): ReactElement => {
           </ul>
         </div>
         <div className="md:w-3/2 pt-12 md:pt-0 pb-3">
-          <ul className="flex flex-row justify-start md:justify-end gap-6">
+          <ul className="hidden flex flex-row justify-start md:justify-end gap-6">
             <li className="nav-item">
-              <a className="nav-link link-dark" href="#!">
+              <a className="nav-link link-dark" target="_blank" href="https://www.instagram.com/bluemoon.labs">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="35"
@@ -67,7 +67,7 @@ const Footer = (): ReactElement => {
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link link-light" href="#!">
+              <a className="nav-link link-light" target="_blank" href="https://www.instagram.com/bluemoon.labs">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="35"
