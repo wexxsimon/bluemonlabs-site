@@ -25,7 +25,7 @@ export default function Method (): ReactElement {
               Acompanhamos a trajetória dos seus negócios
             </h3>
             <p className="text-persian-blue-950 leading-relaxed text-left text-sm max-w-[494px] mt-5">
-              Oferecendo soluções eficazes para superar desafios de comunicação e marketing digital e alcançar resultados positivos.
+              Oferecemos soluções eficazes para superar desafios de comunicação e marketing digital para alcançar resultados positivos.
             </p>
           </div>
           <div className="md:mt-16">
