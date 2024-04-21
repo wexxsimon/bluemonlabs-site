@@ -51,7 +51,7 @@ const Footer = (): ReactElement => {
           </ul>
         </div>
         <div className="md:w-3/2 pt-12 md:pt-0 pb-3">
-          <ul className="hidden flex flex-row justify-start md:justify-end gap-6">
+          <ul className="flex flex-row justify-start md:justify-end gap-6">
             <li className="nav-item">
               <a className="nav-link link-dark" target="blank" href="https://www.instagram.com/bluemoon.labs">
                 <svg

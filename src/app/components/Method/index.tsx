@@ -25,13 +25,13 @@ export default function Method (): ReactElement {
               Acompanhamos a trajetória dos seus negócios
             </h3>
             <p className="text-persian-blue-950 leading-relaxed text-left text-sm max-w-[494px] mt-5">
-              Oferecemos soluções eficazes para superar desafios de comunicação e marketing digital para alcançar resultados positivos.
+              Nos orgulhamos de oferecer soluções eficazes e inovadoras para superar desafios complexos de comunicação e marketing digital, com o objetivo de alcançar resultados positivos e impulsionar o crescimento dos negócios dos nossos clientes.
             </p>
           </div>
           <div className="md:mt-16">
             <ul
               className="flex content-center flex-row flex-wrap justify-start
-                 md:justify-between uppercase px-4 xl:mr-0 mb-0 md:ml-0 md:max-w-[600px] xl:max-w-[700px]"
+                  md:justify-between uppercase px-4 xl:mr-0 mb-0 md:ml-0 md:max-w-[600px] xl:max-w-[700px]"
             >
               <li
                 className="w-[150px] flex flex-row
