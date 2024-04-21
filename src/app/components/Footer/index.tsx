@@ -85,7 +85,7 @@ const Footer = (): ReactElement => {
       </footer>
       <div className="flex flex-col pt-3 h-[84px] justify-start">
         <span className="text-[0.68rem] text-persian-blue-900 self-center mt-2">
-          Blue Moon Labs - 2024
+          Blue Moon Labs  -  2024
         </span>
       </div>
     </Container>
