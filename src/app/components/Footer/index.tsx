@@ -26,7 +26,7 @@ const Footer = (): ReactElement => {
     >
       <footer className="md:flex md:flex-row justify-between mx-0 md:mx-24 border-b-1 pt-14 pb-4 border-persian-blue-900 content">
         <div className="md:w-1/4 text-xs text-white-100 md:pr-6">
-          <a className="" href="#!">
+          <a className="w-3/4 block" href="#!">
             <Image
               src="/assets/images/logo-bluemoonlabs.webp"
               alt="Logo"
