@@ -5,6 +5,7 @@ import './globals.css'
 import Menu from './components/Menu'
 import Footer from './components/Footer'
 
+
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -16,7 +17,7 @@ export default function RootLayout ({
   children
 }: {
   children: React.ReactNode
-}): ReactElement {
+  }): ReactElement {
   return (
     <html lang="pt-br">
       <body className={inter.className}>

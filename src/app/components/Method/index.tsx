@@ -38,11 +38,11 @@ export default function Method (): ReactElement {
                     mr-2 md:mr-5 md:mb-5 xl:mr-0 md:items-center mt-8 md:mt-0"
               >
                 <Image
-                  src="/assets/images/icons/icon-trip-60x61.webp"
+                  src="/assets/images/icons/sinal-4.png"
                   className="mr-3 md:mr-1"
                   alt=""
-                  width={40}
-                  height={40}
+                  width={51}
+                  height={51}
                 />
                 <p
                   className="mt-1 md:mt-0 md:ml-2 font-acumincondensed font-semibold
@@ -55,11 +55,11 @@ export default function Method (): ReactElement {
               </li>
               <li className="w-[150px] flex flex-row mr-2 md:mr-5 md:mb-5 xl:mr-0 md:items-center mt-8 md:mt-0">
                 <Image
-                  src="/assets/images/icons/icon-pack-60x61.webp"
+                  src="/assets/images/icons/pacote-entregue-2.png"
                   className="mr-3 md:mr-1"
                   alt=""
-                  width={40}
-                  height={40}
+                  width={51}
+                  height={51}
                 />
                 <p
                   className="mt-1 md:mt-0 md:ml-2 font-acumincondensed font-semibold
@@ -75,11 +75,11 @@ export default function Method (): ReactElement {
                       flex flex-row mr-2 md:mr-5 md:mb-5 xl:mr-0 md:items-center mt-8 md:mt-0"
               >
                 <Image
-                  src="/assets/images/icons/icon-otimization-60x61.webp"
+                  src="/assets/images/icons/navegador-da-web-2.png"
                   className="mr-3 md:mr-1"
                   alt=""
-                  width={40}
-                  height={40}
+                  width={51}
+                  height={51}
                 />
                 <p
                   className="mt-1 md:mt-0 md:ml-2 font-acumincondensed font-semibold

@@ -28,8 +28,7 @@ const Card = ({
       ${color}
       ${imgBg}
       flex flex-col p-12 rounded-3xl md:max-w-[337px] mb-6
-      bg-contain bg-top bg-no-repeat   
-      shadow-xl 
+      bg-contain bg-top bg-no-repeat shadow-xl
     `}
     >
       <div className="flex flex-row justify-between items-center">
@@ -44,8 +43,8 @@ const Card = ({
         >
           <Image
             alt=""
-            width={48}
-            height={49}
+            width={51}
+            height={51}
             src={`/assets/images/icons/${iconImage}`}
           />
         </div>
