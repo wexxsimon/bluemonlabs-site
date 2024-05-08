@@ -2,66 +2,64 @@
 import React, { useEffect, useState, useRef } from 'react';
 import Image from "next/image";
 import UseScrollPosition from '../hooks/useScrollPosition';
-import { motion, useScroll, useSpring } from 'framer-motion';
+import { motion } from 'framer-motion';
+import { servicesData } from '../data/services';
 
-interface Servico {
+interface services {
   id: number;
   titulo: string;
   descricao: string;
   altText: string;
   image: string;
+  alternativeTitle: string;
 }
 
-const Servicos: React.FC = () => {
-  const [servicos, setServicos] = useState<Servico[]>([]);
+const services: React.FC = () => {
+  const [services, setServices] = useState<services[]>([]);
   const [backgroundColor, setBackgroundColor] = useState('bg-persian-blue-700');
   const articleRefs = useRef<(HTMLElement | null)[]>([]);
   const scrollY = UseScrollPosition()
-  const { scrollYProgress } = useScroll();
-  const [scr, setScr] = useState<any>({});
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const [centerIndex, setcenterIndex] = useState<number | null>(null);
 
 
-  const servicosData = [
-      {
-        id: 1,
-        titulo: "Estratégia de Marketing Digital",
-        descricao: "Desenvolvemos uma estratégia de marketing digital personalizada para o seu negócio, levando em consideração seus objetivos, público-alvo e orçamento.",
-        altText: "Ícone Estratégia",
-        image: "sinal-4.png"
-      },
-      {
-        id: 2,
-        titulo: "Publicidade e Propaganda",
-        descricao: "Criamos campanhas publicitárias eficazes que aumentam a visibilidade da sua marca, atraem novos clientes e impulsionam as vendas.",
-        altText: "Ícone Publicidade",
-        image: "sinal-4.png"
-      },
-      {
-        id: 3,
-        titulo: "SEO (Search Engine Optimization)",
-        descricao: "Melhoramos a visibilidade do seu site nos motores de busca, aumentando o tráfego orgânico e atraindo visitantes qualificados.",
-        altText: "Ícone SEO",
-        image: "sinal-2.png"
-      },
-      {
-        id: 4,
-        titulo: "Gestão de Redes Sociais",
-        descricao: "Gerenciamos suas redes sociais, criando conteúdo relevante e envolvente que promove o engajamento do público e fortalece a presença online da sua marca.",
-        altText: "Ícone Redes Sociais",
-        image: "sinal-4.png"
-      },
-      {
-        id: 5,
-        titulo: "Análise e Relatórios",
-        descricao: "Fornecemos relatórios detalhados e análises de desempenho para ajudá-lo a entender o impacto das nossas estratégias de marketing digital no seu negócio.",
-        altText: "Ícone Análise",
-        image: "sinal-4.png"
-      }
-  ];
 
   useEffect(() => {
-    setServicos(servicosData)
+    setServices(servicesData);
   }, [])
+
+  useEffect(() => {
+    const adjustViewportHeight = () => {
+      if (sectionRef.current) {
+        const sectionHeight = sectionRef.current.offsetHeight;
+        document.documentElement.style.setProperty('--vh', `${sectionHeight * 0.01 - 500}px`);
+      }
+    };
+    adjustViewportHeight();
+    window.addEventListener('resize', adjustViewportHeight);
+    return () => window.removeEventListener('resize', adjustViewportHeight);
+  }, []);
+
+  function verificarIconeAcima(elemento: HTMLElement, indice: number) {
+    const rect = elemento.getBoundingClientRect();
+    const alturaTela = window.innerHeight || document.documentElement.clientHeight;
+
+    const iconeAcima = rect.top < alturaTela / 2;
+
+    if (iconeAcima) {
+      setcenterIndex(indice);
+    } else {
+      if (centerIndex === indice) {
+        setcenterIndex(null);
+      }
+    }
+  }
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   const handleScroll = () => {
     const viewportHeight = window.visualViewport?.height || 0;
@@ -83,9 +81,8 @@ const Servicos: React.FC = () => {
     const part6Start = 83.33;
     const part6End = 100; // Toda a tela
 
-    // Verifique em qual parte da tela estamos e atualize a cor de fundo
     if (scrollPercentage >= part1Start && scrollPercentage < part1End) {
-      setBackgroundColor('bg-persian-blue-700'); // Substitua 'bg-color-1' pela classe de cor desejada
+      setBackgroundColor('bg-persian-blue-700');
     } else if (scrollPercentage >= part2Start && scrollPercentage < part2End) {
       setBackgroundColor('bg-persian-blue-600');
     } else if (scrollPercentage >= part3Start && scrollPercentage < part3End) {
@@ -97,20 +94,20 @@ const Servicos: React.FC = () => {
     } else if (scrollPercentage >= part6Start && scrollPercentage <= part6End) {
       setBackgroundColor('bg-gulf-blue-500');
     }
-
-    console.log('Estamos na parte ' + Math.ceil(scrollPercentage / (100 / 6)) + ' da tela.');
-    console.log('Porcentagem de scroll:', scrollPercentage.toFixed(2) + '%');
   };
 
-  const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001
-  });
-
   useEffect(() => {
-    setScr(scaleX);
-  }, [scrollYProgress]);
+    const handleScroll = () => {
+      articleRefs.current.forEach((article, index) => {
+        if (article) {
+          verificarIconeAcima(article, index);
+        }
+      });
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
@@ -118,24 +115,24 @@ const Servicos: React.FC = () => {
   },[scrollY])
 
   return (
-    <section className={`flex flex-col pb-48 ${backgroundColor}`}>
+    <section ref={sectionRef} className={`flex flex-col pb-48 ${backgroundColor}`}>
       <div className="flex flex-wrap mt-36">
-      <div
-          className="
+        <motion.div
+          transition={{ duration: 1, ease: 'easeIn' }}
+          className={`
               flex content-end justify-end
-              md:w-[35%] md:h-[213px] xl:h-[288px] bg-sail-200 pt-12 md:pt-16 xl:pt-24 rounded-br-[71px]"
+              md:w-[35%] md:h-[1600px] bg-sail-200 pt-12 md:pt-16 xl:pt-24 rounded-br-[250px] rounded-tr-[250px]`}
         >
-          <motion.div className="progress-bar bg-black-100 w-100" style={{ scaleX: scr }}
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: 1 }}
-              exit={{ scaleX: 0 }}
-          />
-          <div
-            className="fixed bg-no-repeat hidden md:block bg-contain
-                    bg-top w-full md:w-[380px] h-[107px] md:h-[900px]
-                    bg-[url('/assets/images/bg-space-window-3d.webp')] mt-24 md:mt-0 md:-mr-[23px]"
-          ></div>
-        </div>
+          <motion.div
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            exit={{ x: 1000 }}
+            transition={{ type: 'spring', stiffness:120, duration: .1, ease: 'easeIn', delay: .9 }}
+            className="sticky top-36 bg-no-repeat hidden md:block bg-contain
+                    bg-top w-full md:w-[380px] h-[107px] md:h-[215px]
+                    bg-[url('/assets/images/bg-space-window-3d.webp')] mt-24 md:mt-0 md:-mr-[63px]"
+          ></motion.div>
+        </motion.div>
         <div className="md:w-[65%] px-6 md:px-12 xl:px-24">
         <div className="w-full md:max-w-[437px] md:mb-6 md:mt-12 xl:mt-24">
             <h3 className="leading-tight text-white-100 text-2xl sm:max-w-[350px] md:max-w-[400px] md:text-3xl font-acumin font-semibold">
@@ -145,29 +142,125 @@ const Servicos: React.FC = () => {
               Acreditamos que todas as empresas, independentemente do tamanho, merecem ter acesso ao melhor do marketing digital. Nossa equipe multidisciplinar e experiente está pronta para ajudar sua empresa a navegar pelo mundo digital.
             </p>
           </div>
-          {servicos.map((servico, index) => (
-            <article
-              key={servico.id}
+          {services.map((service, index) => (
+            <motion.article
+              key={service.id}
               ref={el => articleRefs.current[index] = el}
-              data-id={servico.id}
-              className="flex flex-col flex-wrap justify-start md:justify-between my-40 xl:mr-0 mb-0 md:ml-0"
+              data-id={service.id}
+              className="flex flex-column flex-wrap justify-start xl:mr-0 mb-0 md:ml-0 my-24 h-[180px]"
             >
-              <div className="flex flex-row mr-2 md:mr-5 xl:mr-0 md:items-end mt-8 md:mt-0 ">
-                <Image
-                  alt={servico.altText}
-                  width={51}
-                  height={51}
-                  src={`/assets/images/icons/${servico.image}`}
-                  unoptimized
-                />
-                <h4 className="mt-1 md:mt-0 md:ml-2 font-acumincondensed font-semibold text-white-100">
-                  {servico.titulo}
-                </h4>
+              <div className='w-14 block'>
+                {centerIndex === index && (
+                  <motion.div
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  exit={{ x: 1000 }}
+                  transition={{ type: 'spring', stiffness:120, duration: .1, ease: 'easeIn', delay: 0 }}
+                  >
+                      <Image
+                        alt={service.altText}
+                        width={51}
+                        height={51}
+                        src={`/assets/images/icons/${service.image}`}
+                        unoptimized
+                      />
+                  </motion.div>
+                )}
               </div>
-              <p className="text-sm mt-2 text-white-100 md:max-w-[494px] ">
-                {servico.descricao}
-              </p>
-            </article>
+              <div className="flex flex-col ml-4 mr-2 md:mr-5 xl:mr-0 mt-8 md:mt-0 ">
+                { centerIndex === index ? (
+                  <motion.h4
+                  initial={{ rotateX: 90, opacity: 0}}
+                  animate={{ rotateX: 0, opacity: 1 }}
+                  transition={{ duration: 1, delay: .3 }}
+                    className="w-auto mt-1 md:mt-0 text-2xl font-acumincondensed font-semibold text-white-100">
+                    {service.alternativeTitle}
+                    </motion.h4>
+                    ) : (
+                    <h4
+                    className="mt-1 md:mt-0 text-2xl font-acumincondensed font-semibold text-white-100">
+                    {service.titulo}
+                    </h4>
+                )}
+                <p className="text-sm mt-2 text-white-100 md:max-w-[494px] ">
+                  {service.descricao}
+                </p>
+                <div className="flex flex-row justify-evenly mt-4 md:mt-0">
+                <div className='w-14 mt-6 block'>
+                  {centerIndex === index && (
+                    <motion.div
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    exit={{ x: 1000 }}
+                    transition={{ type: 'spring', stiffness:120, duration: .1, ease: 'easeIn', delay: .4 }}
+                    >
+                        <Image
+                          alt={service.altText}
+                          width={51}
+                          height={51}
+                          src={`/assets/images/icons/${service.image}`}
+                          unoptimized
+                        />
+                    </motion.div>
+                  )}
+                </div>
+                <div className='w-14 mt-6 block'>
+                  {centerIndex === index && (
+                    <motion.div
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    exit={{ x: 1000 }}
+                    transition={{ type: 'spring', stiffness:120, duration: .1, ease: 'easeIn', delay: .45 }}
+                    >
+                        <Image
+                          alt={service.altText}
+                          width={51}
+                          height={51}
+                          src={`/assets/images/icons/${service.image}`}
+                          unoptimized
+                        />
+                    </motion.div>
+                  )}
+                </div>
+                <div className='w-14 mt-6 block'>
+                  {centerIndex === index && (
+                    <motion.div
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    exit={{ x: 1000 }}
+                    transition={{ type: 'spring', stiffness:120, duration: .1, ease: 'easeIn', delay: .50 }}
+                    >
+                        <Image
+                          alt={service.altText}
+                          width={51}
+                          height={51}
+                          src={`/assets/images/icons/${service.image}`}
+                          unoptimized
+                        />
+                    </motion.div>
+                  )}
+                </div>
+                <div className='w-14 mt-6 block'>
+                  {centerIndex === index && (
+                    <motion.div
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    exit={{ x: 1000 }}
+                    transition={{ type: 'spring', stiffness:120, duration: .1, ease: 'easeIn', delay: .55 }}
+                    >
+                        <Image
+                          alt={service.altText}
+                          width={51}
+                          height={51}
+                          src={`/assets/images/icons/${service.image}`}
+                          unoptimized
+                        />
+                    </motion.div>
+                  )}
+                </div>
+                </div>
+              </div>
+            </motion.article>
           ))}
         </div>
       </div>
@@ -175,4 +268,4 @@ const Servicos: React.FC = () => {
   );
 };
 
-export default Servicos;
+export default services;
