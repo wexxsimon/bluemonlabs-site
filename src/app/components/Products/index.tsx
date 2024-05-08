@@ -15,11 +15,11 @@ const Products = (): ReactElement => {
         >
           <li className="w-[160px] md:w-[96px] flex md:flex-col mt-8 md:mt-0">
             <Image
-              src="/assets/images/icons/icon-idea.svg"
+              src="/assets/images/icons/planet.png"
               className="mr-1 md:mx-0"
               alt=""
-              width={40}
-              height={40}
+              width={51}
+              height={51}
             />
             <p
               className="mt-1 md:mt-3 font-acumincondensed-300
@@ -31,11 +31,11 @@ const Products = (): ReactElement => {
           </li>
           <li className="w-[150px] bg-persian-blue-800 md:w-[96px] flex md:flex-col mt-8 md:mt-0">
             <Image
-              src="/assets/images/icons/icon-grafic.webp"
+              src="/assets/images/icons/pilot.png"
               className="mr-1 md:mx-0"
               alt=""
-              width={40}
-              height={40}
+              width={51}
+              height={51}
             />
             <p
               className="mt-1 md:mt-3 font-acumincondensed-300
@@ -51,11 +51,11 @@ const Products = (): ReactElement => {
             flex md:flex-col mt-8 md:mt-0"
           >
             <Image
-              src="/assets/images/icons/icon-alienflag.svg"
-              className="mr-1 md:mx-0"
+              src="/assets/images/icons/moon.png"
+              className="mr-1 md:mx-0 mix-color-dodge"
               alt=""
-              width={40}
-              height={40}
+              width={51}
+              height={51}
             />
             <p
               className="mt-1 md:mt-3 font-acumincondensed-300
@@ -67,11 +67,11 @@ const Products = (): ReactElement => {
           </li>
           <li className="w-[150px] bg-persian-blue-800 md:w-[96px] flex md:flex-col mt-8 md:mt-0">
             <Image
-              src="/assets/images/icons/icon-start.svg"
-              className="mr-1 md:mx-0"
+              src="/assets/images/icons/start-3.png"
+              className="mr-1 md:mx-0 mix-color-dodge"
               alt=""
-              width={40}
-              height={40}
+              width={51}
+              height={51}
             />
             <p
               className="mt-1 md:mt-3 font-acumincondensed-300
@@ -109,7 +109,7 @@ const Products = (): ReactElement => {
           <li className="md:w-[150px] flex">
             <p
               className="mt-3 font-acumincondensed-300 text-xs
-             text-persian-blue-100 uppercase leading-relaxed"
+              text-persian-blue-100 uppercase leading-relaxed"
             >
               Desenvolvimento <br />
               <span className="text-persian-blue-300">Web</span>
