@@ -20,7 +20,7 @@ export const servicesData = [
     titulo: "Search Engine Optimization - SEO",
     descricao: "Melhoramos a visibilidade do seu site nos motores de busca, aumentando o tráfego orgânico e atraindo visitantes qualificados.",
     altText: "Ícone SEO",
-    image: "sinal-2.png",
+    image: "sinal-4.png",
     alternativeTitle: "Especialista em SEO"
   },
   {
