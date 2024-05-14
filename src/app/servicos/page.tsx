@@ -137,7 +137,7 @@ const Services = () => {
         <div className="md:w-[65%] px-6 md:px-12 xl:px-24">
         <div className="w-full md:max-w-[437px] md:mb-6 md:mt-12 xl:mt-24">
             <h3 className="leading-tight text-white-100 text-2xl sm:max-w-[350px] md:max-w-[400px] md:text-3xl font-acumin font-semibold">
-              Acompanhamos a trajetória dos seus negócios
+                Acompanhamos a trajetória dos seus negócios
             </h3>
             <p className="leading-relaxed text-left text-sm max-w-[494px] mt-5  text-persian-blue-200">
               Acreditamos que todas as empresas, independentemente do tamanho, merecem ter acesso ao melhor do marketing digital. Nossa equipe multidisciplinar e experiente está pronta para ajudar sua empresa a navegar pelo mundo digital.
