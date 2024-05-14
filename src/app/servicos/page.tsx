@@ -55,38 +55,23 @@ const Services = () => {
     const totalScrollHeight = document.documentElement.scrollHeight - viewportHeight;
     const scrollPercentage = (scrollPosition / totalScrollHeight) * 100;
 
-    const part1Start = 0;
-    const part1End = 16.67; // 1/6 da tela
-    const part2Start = 16.67;
-    const part2End = 33.33; // 2/6 da tela
-    const part3Start = 33.33;
-    const part3End = 50; // 3/6 da tela
-    const part4Start = 50;
-    const part4End = 66.67; // 4/6 da tela
-    const part5Start = 66.67;
-    const part5End = 83.33; // 5/6 da tela
-    const part6Start = 83.33;
-    const part6End = 100; // Toda a tela
+    const createScrollSetting = (start: number, end: number, color: string, image: string) => ({ start, end, color, image });
 
-    if (scrollPercentage >= part1Start && scrollPercentage < part1End) {
-      setBackgroundColor('bg-gulf-blue-950');
-      setBackgroundImage('bg-space-window-3d.webp')
-    } else if (scrollPercentage >= part2Start && scrollPercentage < part2End) {
-      setBackgroundColor('bg-color-selector-ads');
-      setBackgroundImage('bg-space-window-3d.webp')
-    } else if (scrollPercentage >= part3Start && scrollPercentage < part3End) {
-      setBackgroundColor('bg-color-selector-ads');
-      setBackgroundImage('bg-space-window-3d.webp')
-    } else if (scrollPercentage >= part4Start && scrollPercentage < part4End) {
-      setBackgroundColor('bg-color-selector-seo');
-      setBackgroundImage('bg-space-window-3d.webp')
-    } else if (scrollPercentage >= part5Start && scrollPercentage < part5End) {
-      setBackgroundColor('bg-color-selector-social-media');
-      setBackgroundImage('bg-space-window-3d.webp')
-    } else if (scrollPercentage >= part6Start && scrollPercentage <= part6End) {
-      setBackgroundColor('bg-color-selector-data-cience');
-      setBackgroundImage('bg-space-window-3d.webp')
-    }
+
+    const scrollSettings = [
+      createScrollSetting(0, 16.67, 'bg-gulf-blue-950', 'bg-space-window-3d.webp'),
+      createScrollSetting(16.67, 33.33, 'bg-color-selector-ads', 'bg-space-window-3d.webp'),
+      createScrollSetting(33.33, 50, 'bg-color-selector-ads', 'bg-space-window-3d.webp'),
+      createScrollSetting(50, 66.67, 'bg-color-selector-seo', 'bg-space-window-3d.webp'),
+      createScrollSetting(66.67, 83.33, 'bg-color-selector-social-media', 'bg-space-window-3d.webp'),
+      createScrollSetting(83.33, 100, 'bg-color-selector-data-cience', 'bg-space-window-3d.webp'),
+    ];
+    scrollSettings.forEach(setting => {
+      if (scrollPercentage >= setting.start && scrollPercentage < setting.end) {
+        setBackgroundColor(setting.color);
+        setBackgroundImage(setting.image);
+      }
+    });
   };
 
   useEffect(() => {
@@ -103,6 +88,7 @@ const Services = () => {
         }
       }
     };
+
     const handleScroll = () => {
       articleRefs.current.forEach((article, index) => {
         if (article) {

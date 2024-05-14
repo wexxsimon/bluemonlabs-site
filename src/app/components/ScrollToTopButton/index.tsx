@@ -36,7 +36,7 @@ const ScrollToTopButton = () => {
           animate={{ x: 0, opacity: 1 }}
           transition={{ type: 'spring', stiffness: 20, duration: .5 }}
           onClick={scrollToTop}
-          className="bg-white-100 text-black rounded-full cursor-pointer p-2"
+        className="bg-white-100 text-black rounded-full cursor-pointer p-2"
         >
           <svg className="h-8 w-8 text-sky-700"  width="24" height="24" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <polyline points="6 15 12 9 18 15" /></svg>
         </motion.div>
