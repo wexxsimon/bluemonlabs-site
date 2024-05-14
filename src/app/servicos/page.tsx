@@ -146,7 +146,9 @@ const Services = () => {
           {services.map((service, index) => (
             <motion.article
                 key={service.id}
-                ref={el => articleRefs.current[index] = el}
+                ref={el => {
+                  articleRefs.current[index] = el;
+              }}
                 data-id={service.id}
                 className="flex flex-column flex-wrap justify-start xl:mr-0 mb-0 md:ml-0 my-28 py-12"
                 >
