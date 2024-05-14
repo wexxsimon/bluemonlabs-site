@@ -14,7 +14,7 @@ export default function Method (): ReactElement {
               md:w-[35%] md:h-[213px] xl:h-[288px] bg-sail-200 pt-12 md:pt-16 xl:pt-24 rounded-br-[71px]"
         >
           <div
-            className=" bg-no-repeat hidden md:block bg-contain
+            className="bg-no-repeat hidden md:block bg-contain
                     bg-top w-full md:w-[380px] h-[107px] md:h-[292px]
                     bg-[url('/assets/images/bg-space-window-3d.webp')] mt-24 md:mt-0 md:-mr-[23px]"
           ></div>

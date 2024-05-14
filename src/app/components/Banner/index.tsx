@@ -19,7 +19,7 @@ const Banner = (): ReactElement => {
           </p>
         </div>
         <div className="md:w-[35%] flex items-center justify-center mt-6 md:mt-0">
-          <Button dark width={'290px'} outline href={'/'}>Faça parte dessa transformação</Button>
+          <Button dark width={'290px'} outline href={'/servicos'}>Faça parte dessa transformação</Button>
         </div>
       </div>
     </section>

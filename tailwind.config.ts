@@ -18,12 +18,8 @@ const config: Config = {
         semibold: '600',
         bold: '700'
       },
-      fontStyle: {
-        italic: 'italic',
-        semibold: 'semibold'
-      },
       fontSize: {
-        xs: '0.68rem;'
+        xs: '0.68rem'
       },
       borderWidth: {
         1: '1px',
@@ -94,9 +90,6 @@ const config: Config = {
         800: '#1316c0',
         900: '#191e96',
         950: '#0e0f52'
-      },
-      'pink-blue': {
-        'linear-gradient': '(to right, #ca01fc, #2529c6)'
       }
     }
   },

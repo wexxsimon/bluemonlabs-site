@@ -9,6 +9,7 @@ interface services {
   id: number;
   titulo: string;
   descricao: string;
+  beneficios: string;
   altText: string;
   image: string;
   alternativeTitle: string;
@@ -16,7 +17,8 @@ interface services {
 
 const services: React.FC = () => {
   const [services, setServices] = useState<services[]>([]);
-  const [backgroundColor, setBackgroundColor] = useState('bg-persian-blue-700');
+  const [backgroundImage, setBackgroundImage] = useState('bg-space-window-3d.webp');
+  const [backgroundColor, setBackgroundColor] = useState('bg-gulf-blue-900');
   const articleRefs = useRef<(HTMLElement | null)[]>([]);
   const scrollY = UseScrollPosition()
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -82,17 +84,23 @@ const services: React.FC = () => {
     const part6End = 100; // Toda a tela
 
     if (scrollPercentage >= part1Start && scrollPercentage < part1End) {
-      setBackgroundColor('bg-persian-blue-700');
+      setBackgroundColor('bg-gulf-blue-900');
+      setBackgroundImage('bg-space-window-3d.webp')
     } else if (scrollPercentage >= part2Start && scrollPercentage < part2End) {
-      setBackgroundColor('bg-persian-blue-600');
+      setBackgroundColor('bg-gulf-blue-900');
+      setBackgroundImage('bg-space-window-3d.webp')
     } else if (scrollPercentage >= part3Start && scrollPercentage < part3End) {
       setBackgroundColor('bg-sail-600');
+      setBackgroundImage('bg-space-window-3d.webp')
     } else if (scrollPercentage >= part4Start && scrollPercentage < part4End) {
       setBackgroundColor('bg-sail-500');
+      setBackgroundImage('bg-space-window-3d.webp')
     } else if (scrollPercentage >= part5Start && scrollPercentage < part5End) {
-      setBackgroundColor('bg-gulf-blue-600');
+      setBackgroundColor('bg-persian-blue-800');
+      setBackgroundImage('bg-space-window-3d.webp')
     } else if (scrollPercentage >= part6Start && scrollPercentage <= part6End) {
-      setBackgroundColor('bg-gulf-blue-500');
+      setBackgroundColor('bg-sail-700');
+      setBackgroundImage('bg-space-window-3d.webp')
     }
   };
 
@@ -121,16 +129,25 @@ const services: React.FC = () => {
           transition={{ duration: 1, ease: 'easeIn' }}
           className={`
               flex content-end justify-end
-              md:w-[35%] md:h-[1600px] bg-sail-200 pt-12 md:pt-16 xl:pt-24 rounded-br-[250px] rounded-tr-[250px]`}
+              md:w-[35%] md:h-[1680px] bg-sail-200 pt-12 md:pt-16 xl:pt-24 rounded-br-[250px] rounded-tr-[250px]`}
         >
           <motion.div
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             exit={{ x: 1000 }}
             transition={{ type: 'spring', stiffness:120, duration: .1, ease: 'easeIn', delay: .9 }}
-            className="sticky top-36 bg-no-repeat hidden md:block bg-contain
-                    bg-top w-full md:w-[380px] h-[107px] md:h-[215px]
-                    bg-[url('/assets/images/bg-space-window-3d.webp')] mt-24 md:mt-0 md:-mr-[63px]"
+            className={`sticky top-36 bg-no-repeat hidden md:block bg-contain
+            bg-top w-full md:w-[380px] h-[107px] md:h-[215px]
+            bg-[url('/assets/images/${backgroundImage}')] mt-24 md:mt-0 md:-mr-[63px]`}
+          ></motion.div>
+          <motion.div
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            exit={{ x: 1000 }}
+            transition={{ type: 'spring', stiffness:120, duration: .1, ease: 'easeIn', delay: .9 }}
+            className={`top-36 bg-no-repeat invisible absolute md:block bg-contain
+            bg-top w-full md:w-[380px] h-[107px] md:h-[215px]
+            bg-[url('/assets/images/bg-space-window-3d23.webp')] mt-24 md:mt-0 md:-mr-[63px]`}
           ></motion.div>
         </motion.div>
         <div className="md:w-[65%] px-6 md:px-12 xl:px-24">
@@ -144,121 +161,75 @@ const services: React.FC = () => {
           </div>
           {services.map((service, index) => (
             <motion.article
-              key={service.id}
-              ref={el => articleRefs.current[index] = el}
-              data-id={service.id}
-              className="flex flex-column flex-wrap justify-start xl:mr-0 mb-0 md:ml-0 my-24 h-[180px]"
-            >
-              <div className='w-14 block'>
-                {centerIndex === index && (
-                  <motion.div
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  exit={{ x: 1000 }}
-                  transition={{ type: 'spring', stiffness:120, duration: .1, ease: 'easeIn', delay: 0 }}
-                  >
-                      <Image
-                        alt={service.altText}
-                        width={51}
-                        height={51}
-                        src={`/assets/images/icons/${service.image}`}
-                        unoptimized
-                      />
-                  </motion.div>
-                )}
-              </div>
-              <div className="flex flex-col ml-4 mr-2 md:mr-5 xl:mr-0 mt-8 md:mt-0 ">
-                { centerIndex === index ? (
-                  <motion.h4
-                  initial={{ rotateX: 90, opacity: 0}}
-                  animate={{ rotateX: 0, opacity: 1 }}
-                  transition={{ duration: 1, delay: .3 }}
-                    className="w-auto mt-1 md:mt-0 text-2xl font-acumincondensed font-semibold text-white-100">
-                    {service.alternativeTitle}
+                key={service.id}
+                ref={el => articleRefs.current[index] = el}
+                data-id={service.id}
+                className="flex flex-column flex-wrap justify-start xl:mr-0 mb-0 md:ml-0 my-28"
+                >
+                  <div className='w-14 block'>
+                    {centerIndex === index && (
+                        <motion.div
+                          initial={{ scale: 0 }}
+                          animate={{ scale: 1 }}
+                          exit={{ x: 1000 }}
+                    transition={{ type: 'spring', stiffness: 120, duration: .1, ease: 'easeIn', delay: 0 }}
+                    className='mix-blend-overlay'
+                        >
+                          <Image
+                            alt={service.altText}
+                            width={51}
+                            height={51}
+                            src={`/assets/images/icons/${service.image}`}
+                            unoptimized
+                          />
+                        </motion.div>
+                            )}
+                          </div>
+                          <div className="flex flex-col ml-4 mr-2 md:mr-5 xl:mr-0 mt-8 md:mt-0 ">
+                            { centerIndex === index ? (
+                              <motion.h4
+                                initial={{ rotateX: 90, opacity: 0}}
+                                animate={{ rotateX: 0, opacity: 1 }}
+                                transition={{ duration: 1, delay: .3 }}
+                                className="w-auto mt-1 md:mt-0 text-2xl font-acumincondensed font-semibold text-white-100">
+                                {service.alternativeTitle}
                     </motion.h4>
                     ) : (
-                    <h4
-                    className="mt-1 md:mt-0 text-2xl font-acumincondensed font-semibold text-white-100">
-                    {service.titulo}
-                    </h4>
+                    <motion.h4
+                                  initial={{ rotateX: 90, opacity: 0}}
+                                  animate={{ rotateX: 0, opacity: .5 }}
+                                  transition={{ duration: 1, delay: .3 }}
+                                  className="mt-1 md:mt-0 text-2xl font-acumincondensed font-semibold text-white-100">
+                                  {service.titulo}
+                    </motion.h4>
                 )}
-                <p className="text-sm mt-2 text-white-100 md:max-w-[494px] ">
-                  {service.descricao}
-                </p>
-                <div className="flex flex-row justify-evenly mt-4 md:mt-0">
-                <div className='w-14 mt-6 block'>
-                  {centerIndex === index && (
-                    <motion.div
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    exit={{ x: 1000 }}
-                    transition={{ type: 'spring', stiffness:120, duration: .1, ease: 'easeIn', delay: .4 }}
+                {centerIndex === index ? (
+                  <motion.p
+                    initial={{ opacity: .5 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 1, delay: .3 }}
+                    className="leading-relaxed text-sm mt-2 text-white-100 md:max-w-[494px] ">
+                    {service.descricao}
+                  </motion.p>
+                ) : (
+                  <motion.p
+                      transition={{ duration: 1, delay: .3 }}
+                      initial={{ y: -100, opacity: .5 }} // Começa de cima para baixo
+                      animate={{ y: 0, opacity:.5 }} // Termina na posição original
+                    className="leading-relaxed text-sm mt-2 text-white-100 md:max-w-[494px] ">
+                    {service.descricao}
+                  </motion.p>
+                )}
+                {centerIndex === index && (
+                  <motion.p
+                    initial={{ y: -100, opacity: 0 }} // Começa de cima para baixo
+                    animate={{ y: 0, opacity: 1 }} // Termina na posição original
+                    transition={{ duration: 1, delay: 0.1 }}
+                    className="leading-relaxed text-sm mt-2 text-white-100 md:max-w-[494px]"
                     >
-                        <Image
-                          alt={service.altText}
-                          width={51}
-                          height={51}
-                          src={`/assets/images/icons/${service.image}`}
-                          unoptimized
-                        />
-                    </motion.div>
-                  )}
-                </div>
-                <div className='w-14 mt-6 block'>
-                  {centerIndex === index && (
-                    <motion.div
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    exit={{ x: 1000 }}
-                    transition={{ type: 'spring', stiffness:120, duration: .1, ease: 'easeIn', delay: .45 }}
-                    >
-                        <Image
-                          alt={service.altText}
-                          width={51}
-                          height={51}
-                          src={`/assets/images/icons/${service.image}`}
-                          unoptimized
-                        />
-                    </motion.div>
-                  )}
-                </div>
-                <div className='w-14 mt-6 block'>
-                  {centerIndex === index && (
-                    <motion.div
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    exit={{ x: 1000 }}
-                    transition={{ type: 'spring', stiffness:120, duration: .1, ease: 'easeIn', delay: .50 }}
-                    >
-                        <Image
-                          alt={service.altText}
-                          width={51}
-                          height={51}
-                          src={`/assets/images/icons/${service.image}`}
-                          unoptimized
-                        />
-                    </motion.div>
-                  )}
-                </div>
-                <div className='w-14 mt-6 block'>
-                  {centerIndex === index && (
-                    <motion.div
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    exit={{ x: 1000 }}
-                    transition={{ type: 'spring', stiffness:120, duration: .1, ease: 'easeIn', delay: .55 }}
-                    >
-                        <Image
-                          alt={service.altText}
-                          width={51}
-                          height={51}
-                          src={`/assets/images/icons/${service.image}`}
-                          unoptimized
-                        />
-                    </motion.div>
-                  )}
-                </div>
-                </div>
+                      {service.beneficios}
+                  </motion.p>
+                )}
               </div>
             </motion.article>
           ))}
