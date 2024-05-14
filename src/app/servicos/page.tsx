@@ -127,7 +127,7 @@ const Services = () => {
           transition={{ duration: 1, ease: 'easeIn' }}
           className={`
               flex content-end justify-end
-              md:w-[35%] md:h-[1780px] bg-sail-200 pt-12 md:pt-16 xl:pt-24 rounded-br-[250px] rounded-tr-[250px]`}
+              md:w-[35%] md:h-auto bg-sail-200 pt-12 md:pt-16 xl:pt-24 rounded-br-[250px] rounded-tr-[250px]`}
         >
           <motion.div
             initial={{ scale: 0 }}
@@ -162,7 +162,7 @@ const Services = () => {
                 key={service.id}
                 ref={el => articleRefs.current[index] = el}
                 data-id={service.id}
-                className="flex flex-column flex-wrap justify-start xl:mr-0 mb-0 md:ml-0 my-28"
+                className="flex flex-column flex-wrap justify-start xl:mr-0 mb-0 md:ml-0 my-28 py-12"
                 >
                   <div className='w-14 block'>
                     {centerIndex === index && (
