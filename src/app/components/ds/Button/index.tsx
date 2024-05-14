@@ -30,7 +30,7 @@ const Button = ({
         : outline
           ? 'bg-transparent border-2 border-white-100  text-white-100'
           : 'border border-transparent bg-white-100 text-persian-blue-950 hover:bg-blue-700 disabled:opacity-50'
-    } 
+    }
     font-acumin
     text-sm
     rounded-full

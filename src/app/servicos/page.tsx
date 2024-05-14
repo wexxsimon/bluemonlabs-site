@@ -15,10 +15,10 @@ interface services {
   alternativeTitle: string;
 }
 
-const services: React.FC = () => {
+const Services = () => {
   const [services, setServices] = useState<services[]>([]);
   const [backgroundImage, setBackgroundImage] = useState('bg-space-window-3d.webp');
-  const [backgroundColor, setBackgroundColor] = useState('bg-gulf-blue-900');
+  const [backgroundColor, setBackgroundColor] = useState('bg-gulf-blue-950');
   const articleRefs = useRef<(HTMLElement | null)[]>([]);
   const scrollY = UseScrollPosition()
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -42,20 +42,6 @@ const services: React.FC = () => {
     return () => window.removeEventListener('resize', adjustViewportHeight);
   }, []);
 
-  function verificarIconeAcima(elemento: HTMLElement, indice: number) {
-    const rect = elemento.getBoundingClientRect();
-    const alturaTela = window.innerHeight || document.documentElement.clientHeight;
-
-    const iconeAcima = rect.top < alturaTela / 2;
-
-    if (iconeAcima) {
-      setcenterIndex(indice);
-    } else {
-      if (centerIndex === indice) {
-        setcenterIndex(null);
-      }
-    }
-  }
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
     return () => {
@@ -69,7 +55,6 @@ const services: React.FC = () => {
     const totalScrollHeight = document.documentElement.scrollHeight - viewportHeight;
     const scrollPercentage = (scrollPosition / totalScrollHeight) * 100;
 
-    // Defina os limites para cada parte da tela (em porcentagem)
     const part1Start = 0;
     const part1End = 16.67; // 1/6 da tela
     const part2Start = 16.67;
@@ -84,27 +69,40 @@ const services: React.FC = () => {
     const part6End = 100; // Toda a tela
 
     if (scrollPercentage >= part1Start && scrollPercentage < part1End) {
-      setBackgroundColor('bg-gulf-blue-900');
+      setBackgroundColor('bg-gulf-blue-950');
       setBackgroundImage('bg-space-window-3d.webp')
     } else if (scrollPercentage >= part2Start && scrollPercentage < part2End) {
-      setBackgroundColor('bg-gulf-blue-900');
+      setBackgroundColor('bg-color-selector-ads');
       setBackgroundImage('bg-space-window-3d.webp')
     } else if (scrollPercentage >= part3Start && scrollPercentage < part3End) {
-      setBackgroundColor('bg-sail-600');
+      setBackgroundColor('bg-color-selector-ads');
       setBackgroundImage('bg-space-window-3d.webp')
     } else if (scrollPercentage >= part4Start && scrollPercentage < part4End) {
-      setBackgroundColor('bg-sail-500');
+      setBackgroundColor('bg-color-selector-seo');
       setBackgroundImage('bg-space-window-3d.webp')
     } else if (scrollPercentage >= part5Start && scrollPercentage < part5End) {
-      setBackgroundColor('bg-persian-blue-800');
+      setBackgroundColor('bg-color-selector-social-media');
       setBackgroundImage('bg-space-window-3d.webp')
     } else if (scrollPercentage >= part6Start && scrollPercentage <= part6End) {
-      setBackgroundColor('bg-sail-700');
+      setBackgroundColor('bg-color-selector-data-cience');
       setBackgroundImage('bg-space-window-3d.webp')
     }
   };
 
   useEffect(() => {
+    const verificarIconeAcima = (elemento: HTMLElement, indice: number): void => {
+      const rect = elemento.getBoundingClientRect();
+      const alturaTela = window.innerHeight || document.documentElement.clientHeight;
+      const iconeAcima = rect.top < alturaTela / 2;
+
+      if (iconeAcima) {
+        setcenterIndex(indice);
+      } else {
+        if (centerIndex === indice) {
+          setcenterIndex(null);
+        }
+      }
+    };
     const handleScroll = () => {
       articleRefs.current.forEach((article, index) => {
         if (article) {
@@ -115,7 +113,7 @@ const services: React.FC = () => {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [centerIndex]);
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
@@ -129,7 +127,7 @@ const services: React.FC = () => {
           transition={{ duration: 1, ease: 'easeIn' }}
           className={`
               flex content-end justify-end
-              md:w-[35%] md:h-[1680px] bg-sail-200 pt-12 md:pt-16 xl:pt-24 rounded-br-[250px] rounded-tr-[250px]`}
+              md:w-[35%] md:h-[1780px] bg-sail-200 pt-12 md:pt-16 xl:pt-24 rounded-br-[250px] rounded-tr-[250px]`}
         >
           <motion.div
             initial={{ scale: 0 }}
@@ -185,23 +183,22 @@ const services: React.FC = () => {
                         </motion.div>
                             )}
                           </div>
-                          <div className="flex flex-col ml-4 mr-2 md:mr-5 xl:mr-0 mt-8 md:mt-0 ">
-                            { centerIndex === index ? (
-                              <motion.h4
-                                initial={{ rotateX: 90, opacity: 0}}
-                                animate={{ rotateX: 0, opacity: 1 }}
-                                transition={{ duration: 1, delay: .3 }}
-                                className="w-auto mt-1 md:mt-0 text-2xl font-acumincondensed font-semibold text-white-100">
-                                {service.alternativeTitle}
-                    </motion.h4>
-                    ) : (
-                    <motion.h4
-                                  initial={{ rotateX: 90, opacity: 0}}
-                                  animate={{ rotateX: 0, opacity: .5 }}
-                                  transition={{ duration: 1, delay: .3 }}
-                                  className="mt-1 md:mt-0 text-2xl font-acumincondensed font-semibold text-white-100">
-                                  {service.titulo}
-                    </motion.h4>
+              <div className="flex flex-col ml-4 mr-2 md:mr-5 xl:mr-0 mt-8 md:mt-0 ">
+                {centerIndex === index ? (
+                  <motion.h4
+                    initial={{ opacity: .5 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 1, delay: .3 }}
+                    className="mt-1 md:mt-0 text-2xl font-acumincondensed font-semibold text-white-100 max-w-[500px]">
+                    {service.titulo}
+                  </motion.h4>) : (
+                  <motion.h4
+                    initial={{ opacity: 1 }}
+                    animate={{ opacity: .5 }}
+                    transition={{ duration: 1, delay: .3 }}
+                    className="mt-1 md:mt-0 text-2xl font-acumincondensed font-semibold text-white-100 max-w-[500px]">
+                    {service.titulo}
+                  </motion.h4>
                 )}
                 {centerIndex === index ? (
                   <motion.p
@@ -214,8 +211,8 @@ const services: React.FC = () => {
                 ) : (
                   <motion.p
                       transition={{ duration: 1, delay: .3 }}
-                      initial={{ y: -100, opacity: .5 }} // Começa de cima para baixo
-                      animate={{ y: 0, opacity:.5 }} // Termina na posição original
+                      initial={{ opacity: .5 }} // Começa de cima para baixo
+                      animate={{ opacity:.5 }} // Termina na posição original
                     className="leading-relaxed text-sm mt-2 text-white-100 md:max-w-[494px] ">
                     {service.descricao}
                   </motion.p>
@@ -239,4 +236,4 @@ const services: React.FC = () => {
   );
 };
 
-export default services;
+export default Services;

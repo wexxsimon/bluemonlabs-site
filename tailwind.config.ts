@@ -90,6 +90,12 @@ const config: Config = {
         800: '#1316c0',
         900: '#191e96',
         950: '#0e0f52'
+      },
+      'color-selector': {
+        'ads': '#14146b',
+        'seo': '#191e96',
+        'social-media': '#2529c6',
+        'data-cience': '#39adf7'
       }
     }
   },
