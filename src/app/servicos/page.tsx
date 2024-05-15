@@ -177,14 +177,14 @@ const Services = () => {
                     initial={{ opacity: .5 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 1, delay: .3 }}
-                    className="mt-1 md:mt-0 text-2xl font-acumincondensed font-semibold text-white-100 max-w-[500px]">
+                    className="mt-1 md:mt-0 text-2xl font-acumincondensed font-semibold text-white-100 max-w-[420px]">
                     {service.titulo}
                   </motion.h4>) : (
                   <motion.h4
                     initial={{ opacity: 1 }}
                     animate={{ opacity: .5 }}
                     transition={{ duration: 1, delay: .3 }}
-                    className="mt-1 md:mt-0 text-2xl font-acumincondensed font-semibold text-white-100 max-w-[500px]">
+                    className="mt-1 md:mt-0 text-2xl font-acumincondensed font-semibold text-white-100 max-w-[420px]">
                     {service.titulo}
                   </motion.h4>
                 )}
@@ -193,7 +193,7 @@ const Services = () => {
                     initial={{ opacity: .5 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 1, delay: .3 }}
-                    className="leading-relaxed text-sm mt-2 text-white-100 md:max-w-[494px] ">
+                    className="leading-relaxed text-sm mt-5 text-sail-200 md:max-w-[494px] ">
                     {service.descricao}
                   </motion.p>
                 ) : (
@@ -201,7 +201,7 @@ const Services = () => {
                       transition={{ duration: 1, delay: .3 }}
                       initial={{ opacity: .5 }} // Começa de cima para baixo
                       animate={{ opacity:.5 }} // Termina na posição original
-                    className="leading-relaxed text-sm mt-2 text-white-100 md:max-w-[494px] ">
+                    className="leading-relaxed text-sm mt-5 text-sail-200 md:max-w-[494px] ">
                     {service.descricao}
                   </motion.p>
                 )}
@@ -210,7 +210,7 @@ const Services = () => {
                     initial={{ y: -100, opacity: 0 }} // Começa de cima para baixo
                     animate={{ y: 0, opacity: 1 }} // Termina na posição original
                     transition={{ duration: 1, delay: 0.1 }}
-                    className="leading-relaxed text-sm mt-2 text-white-100 md:max-w-[494px]"
+                    className="leading-relaxed text-sm mt-2 text-sail-200 md:max-w-[494px]"
                     >
                       {service.beneficios}
                   </motion.p>
