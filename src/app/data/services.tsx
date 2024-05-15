@@ -11,7 +11,7 @@ export const servicesData = [
     ,
   {
     id: 2,
-    titulo: "Criamos publicidade eficaz e inovadora que otimizam a percepção sobre sua marca",
+    titulo: "Criamos publicidade eficaz e inovadora que otimiza a percepção do seu cliente sobre sua marca",
     descricao: "Nosso objetivo é atrair mais clientes e impulsionar as vendas, maximizando o retorno sobre o investimento em publicidade. Utilizamos uma variedade de canais e técnicas, incluindo publicidade digital, mídia impressa, publicidade na TV e rádio, para alcançar seu público-alvo da maneira mais eficaz.",
     beneficios: "Aumento da visibilidade da marca, atração de novos clientes, impulso nas vendas e maximização do retorno sobre o investimento em publicidade.",
     altText: "Ícone Publicitário",
