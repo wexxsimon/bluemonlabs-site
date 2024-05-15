@@ -22,6 +22,7 @@ export default function RootLayout ({
 
   return (
     <html lang="pt-br">
+      <meta name="google-site-verification" content="d_WTemhflUJi7nZZGSpysaYOIvumP2m7RNwHHJbSchc" />
       <body className={inter.className}>
         <Menu />
         {children}
