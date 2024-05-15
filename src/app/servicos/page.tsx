@@ -113,28 +113,29 @@ const Services = () => {
           transition={{ duration: 1, ease: 'easeIn' }}
           className={`
               flex content-end justify-end
-              md:w-[33%] md:h-auto bg-sail-200 pt-12 md:pt-16 xl:pt-24 rounded-br-[250px] rounded-tr-[250px]`}
+              md:w-[35%] md:h-auto bg-sail-200 pt-12 md:pt-16 xl:pt-24 rounded-br-[250px] rounded-tr-[250px]`}
         >
           <motion.div
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             exit={{ x: 1000 }}
             transition={{ type: 'spring', stiffness:120, duration: .1, ease: 'easeIn', delay: .9 }}
-            className={`sticky top-36 bg-no-repeat hidden md:block bg-contain
-            bg-top w-full md:w-[380px] h-[107px] md:h-[215px]
-            bg-[url('/assets/images/${backgroundImage}')] mt-24 md:mt-0 md:-mr-[63px]`}
+            className={`sticky top-36 bg-no-repeat hidden md:block bg-cover
+            bg-top w-full md:w-[384px] h-[107px] md:h-[289px]
+            bg-[url('/assets/images/${backgroundImage}')] mt-24 md:mt-0 md:-mr-[23px]`}
           ></motion.div>
           <motion.div
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             exit={{ x: 1000 }}
             transition={{ type: 'spring', stiffness:120, duration: .1, ease: 'easeIn', delay: .9 }}
-            className={`top-36 bg-no-repeat invisible absolute md:block bg-contain
-            bg-top w-full md:w-[380px] h-[107px] md:h-[215px]
-            bg-[url('/assets/images/bg-space-window-3d23.webp')] mt-24 md:mt-0 md:-mr-[63px]`}
+            className={`top-36 bg-no-repeat invisible absolute md:block bg-cover
+            bg-top w-full md:w-[384px] h-[107px] md:h-[289px]
+            bg-[url('/assets/images/bg-space-window-3d23.webp')] mt-24 md:mt-0 md:-mr-[63px]
+            `}
           ></motion.div>
         </motion.div>
-        <div className="md:w-[67%] px-6 md:px-12 xl:px-24">
+        <div className="md:w-[65%] px-6 md:px-12 xl:px-24">
         <div className="w-full md:max-w-[437px] md:mb-6 md:mt-12 xl:mt-24">
             <h3 className="leading-tight text-white-100 text-2xl sm:max-w-[350px] md:max-w-[400px] md:text-3xl font-acumin font-semibold">
                 Acompanhamos a trajetória dos seus negócios
@@ -178,14 +179,14 @@ const Services = () => {
                   <motion.h4
                     initial={{ opacity: .5 }}
                     animate={{ opacity: 1 }}
-                    transition={{ duration: 1, delay: .3 }}
+                    transition={{ duration: 1, delay: .3, ease: 'easeInOut' }}
                     className="mt-1 md:mt-0 text-2xl font-acumincondensed font-semibold text-white-100 max-w-[420px]">
                     {service.titulo}
                   </motion.h4>) : (
                   <motion.h4
                     initial={{ opacity: 1 }}
                     animate={{ opacity: .5 }}
-                    transition={{ duration: 1, delay: .3 }}
+                    transition={{ duration: 1, delay: .3, ease: 'easeInOut' }}
                     className="mt-1 md:mt-0 text-2xl font-acumincondensed font-semibold text-white-100 max-w-[420px]">
                     {service.titulo}
                   </motion.h4>
@@ -194,13 +195,13 @@ const Services = () => {
                   <motion.p
                     initial={{ opacity: .5 }}
                     animate={{ opacity: 1 }}
-                    transition={{ duration: 1, delay: .3 }}
+                    transition={{ duration: 1, delay: .3, ease: 'easeInOut' }}
                     className="leading-relaxed text-sm mt-5 text-sail-200 md:max-w-[494px] ">
                     {service.descricao}
                   </motion.p>
                 ) : (
                   <motion.p
-                      transition={{ duration: 1, delay: .3 }}
+                      transition={{ duration: 1, delay: .3, ease: 'easeInOut' }}
                       initial={{ opacity: .5 }} // Começa de cima para baixo
                       animate={{ opacity:.5 }} // Termina na posição original
                     className="leading-relaxed text-sm mt-5 text-sail-200 md:max-w-[494px] ">
@@ -213,7 +214,7 @@ const Services = () => {
                       initial={{ rotateX: 90, y: -25, opacity: 0 }} // Começa de cima para baixo
                       animate={{ rotateX: 0, y: 0, opacity: 1 }} // Termina na posição original
                       exit={{ rotateX: 90, y: -25, opacity: 0 }}
-                      transition={{ duration: 1, delay: 0.1 }}
+                      transition={{ duration: 1, delay: 0.1, ease: 'easeInOut' }}
                       className="leading-relaxed text-sm mt-2 text-sail-200 md:max-w-[494px]"
                       >
                         {service.beneficios}
