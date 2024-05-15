@@ -2,7 +2,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import Image from "next/image";
 import UseScrollPosition from '../hooks/useScrollPosition';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { servicesData } from '../data/services';
 
 interface services {
@@ -113,7 +113,7 @@ const Services = () => {
           transition={{ duration: 1, ease: 'easeIn' }}
           className={`
               flex content-end justify-end
-              md:w-[35%] md:h-auto bg-sail-200 pt-12 md:pt-16 xl:pt-24 rounded-br-[250px] rounded-tr-[250px]`}
+              md:w-[33%] md:h-auto bg-sail-200 pt-12 md:pt-16 xl:pt-24 rounded-br-[250px] rounded-tr-[250px]`}
         >
           <motion.div
             initial={{ scale: 0 }}
@@ -134,7 +134,7 @@ const Services = () => {
             bg-[url('/assets/images/bg-space-window-3d23.webp')] mt-24 md:mt-0 md:-mr-[63px]`}
           ></motion.div>
         </motion.div>
-        <div className="md:w-[65%] px-6 md:px-12 xl:px-24">
+        <div className="md:w-[67%] px-6 md:px-12 xl:px-24">
         <div className="w-full md:max-w-[437px] md:mb-6 md:mt-12 xl:mt-24">
             <h3 className="leading-tight text-white-100 text-2xl sm:max-w-[350px] md:max-w-[400px] md:text-3xl font-acumin font-semibold">
                 Acompanhamos a trajetória dos seus negócios
@@ -150,16 +150,17 @@ const Services = () => {
                   articleRefs.current[index] = el;
               }}
                 data-id={service.id}
-                className="flex flex-column flex-wrap justify-start xl:mr-0 mb-0 md:ml-0 my-28 py-12 h-[70vh]"
+                className="flex flex-column flex-wrap justify-start xl:mr-0 mb-0 md:ml-0 my-28 py-12 h-[70vh] gap-5"
                 >
-                  <div className='w-14 block'>
+                  <div className='w-20 block'>
+                  <AnimatePresence>
                     {centerIndex === index && (
-                        <motion.div
+                      <motion.div
                           initial={{ scale: 0 }}
                           animate={{ scale: 1 }}
-                          exit={{ x: 1000 }}
-                    transition={{ type: 'spring', stiffness: 120, duration: .1, ease: 'easeIn', delay: 0 }}
-                    className='mix-blend-overlay'
+                          exit={{ scale: 0 }}
+                          transition={{ type: 'spring', stiffness: 120, duration: .1, ease: 'easeIn', delay: 0 }}
+                          className='bg-sail-200 p-5 rounded-full'
                         >
                           <Image
                             alt={service.altText}
@@ -170,7 +171,8 @@ const Services = () => {
                           />
                         </motion.div>
                             )}
-                          </div>
+                </AnimatePresence>
+              </div>
               <div className="flex flex-col ml-4 mr-2 md:mr-5 xl:mr-0 mt-8 md:mt-0 ">
                 {centerIndex === index ? (
                   <motion.h4
@@ -205,16 +207,19 @@ const Services = () => {
                     {service.descricao}
                   </motion.p>
                 )}
-                {centerIndex === index && (
-                  <motion.p
-                    initial={{ y: -100, opacity: 0 }} // Começa de cima para baixo
-                    animate={{ y: 0, opacity: 1 }} // Termina na posição original
-                    transition={{ duration: 1, delay: 0.1 }}
-                    className="leading-relaxed text-sm mt-2 text-sail-200 md:max-w-[494px]"
-                    >
-                      {service.beneficios}
-                  </motion.p>
-                )}
+                <AnimatePresence>
+                  {centerIndex === index && (
+                    <motion.p
+                      initial={{ rotateX: 90, y: -25, opacity: 0 }} // Começa de cima para baixo
+                      animate={{ rotateX: 0, y: 0, opacity: 1 }} // Termina na posição original
+                      exit={{ rotateX: 90, y: -25, opacity: 0 }}
+                      transition={{ duration: 1, delay: 0.1 }}
+                      className="leading-relaxed text-sm mt-2 text-sail-200 md:max-w-[494px]"
+                      >
+                        {service.beneficios}
+                    </motion.p>
+                  )}
+              </AnimatePresence>
               </div>
             </motion.article>
           ))}
