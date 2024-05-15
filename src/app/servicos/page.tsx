@@ -150,7 +150,7 @@ const Services = () => {
                   articleRefs.current[index] = el;
               }}
                 data-id={service.id}
-                className="flex flex-column flex-wrap justify-start xl:mr-0 mb-0 md:ml-0 my-28 py-12"
+                className="flex flex-column flex-wrap justify-start xl:mr-0 mb-0 md:ml-0 my-28 py-12 h-[70vh]"
                 >
                   <div className='w-14 block'>
                     {centerIndex === index && (
