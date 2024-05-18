@@ -18,7 +18,7 @@ interface services {
 
 const Services = () => {
   const [services, setServices] = useState<services[]>([]);
-  const [backgroundImage, setBackgroundImage] = useState('bg-people-01.png');
+  const [backgroundImage, setBackgroundImage] = useState('bg-moon.webp');
   const [backgroundColor, setBackgroundColor] = useState('bg-gulf-blue-950');
   const [backgroundColorSVG, setBackgroundColorSVG] = useState('#0e0f52');
   const articleRefs = useRef<(HTMLElement | null)[]>([]);
@@ -61,7 +61,7 @@ const Services = () => {
 
 
     const scrollSettings = [
-      createScrollSetting(0, 9, 'bg-gulf-blue-950', 'bg-people-01.png', '#0e0f52'),
+      createScrollSetting(0, 9, 'bg-gulf-blue-950', 'bg-moon.webp', '#0e0f52'),
       createScrollSetting(9, 28, 'bg-color-selector-ads', 'bg-people-02.png ', '#14146b'),
       createScrollSetting(28, 48, 'bg-color-selector-social-media', 'bg-people-06.png ', '#2529c6'),
       createScrollSetting(48, 67, 'bg-color-selector-seo', 'bg-people-03.png ', '#191e96'),
@@ -119,46 +119,43 @@ const Services = () => {
               flex content-end justify-end
               md:w-[35%] md:h-auto bg-sail-200 pt-12 md:pt-16 xl:pt-24 rounded-br-[250px] rounded-tr-[250px]`}
         >
-<motion.div
-  initial={{ opacity: 0 }}
-  animate={{ opacity: 1 }}
-  exit={{ opacity: 0 }}
-  transition={{ duration: 1 }}
-  className={`sticky top-36 bg-no-repeat hidden md:block bg-cover bg-top w-full md:w-[282px] h-[107px] md:h-[282px] bg-[url('/assets/images/${backgroundImage}')] mt-24 md:mt-0 rounded-full`}
->
-  {services.map((service, index) => (
-    <motion.div
-      key={service.id}
-      ref={el => {
-        articleRefs.current[index] = el;
-      }}
-      data-id={service.id}
-      className={`${centerIndex === index ? 'flex' : 'hidden' } absolute w-[282px] h-[282px] flex justify-center items-center`}
-    >
-        {centerIndex === index && (
           <motion.div
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            exit={{ scale: 0 }}
-            transition={{ type: 'spring', stiffness: 120, duration: 0.1, ease: 'easeIn', delay: .2 }}
-            className={`absolute bg-white-semi p-5 rounded-full w-[250px] h-[250px] flex justify-center items-center`}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1 }}
+            className={`sticky top-36 bg-no-repeat hidden md:block bg-cover bg-top w-full md:w-[282px] h-[107px] md:h-[282px] bg-[url('/assets/images/${backgroundImage}')] mt-24 md:mt-0 rounded-full`}
           >
-            <Image
-              alt={service.altText}
-              width={81}
-              height={81}
-              src={`/assets/images/icons/${service.image}`}
-              unoptimized
-              className='ml-3'
-            />
-          </motion.div>
-        )}
-    </motion.div>
-  ))}
-
-
-  <IgniteBg style={'relative md:h-[351px] right-[47px] md-w-[351px] top-[-28px]'} color={backgroundColorSVG} size={351} />
-
+            {services.map((service, index) => (
+              <motion.div
+                key={service.id}
+                ref={el => {
+                  articleRefs.current[index] = el;
+                }}
+                data-id={service.id}
+                className={`${centerIndex === index ? 'flex' : 'hidden' } absolute w-[282px] h-[282px] flex justify-center items-center`}
+              >
+                  {centerIndex === index && (
+                    <motion.div
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      exit={{ scale: 0 }}
+                      transition={{ type: 'spring', stiffness: 120, duration: 0.1, ease: 'easeIn', delay: .2 }}
+                      className={`absolute bg-white-semi p-5 rounded-full w-[250px] h-[250px] flex justify-center items-center`}
+                    >
+                      <Image
+                        alt={service.altText}
+                        width={81}
+                        height={81}
+                        src={`/assets/images/icons/${service.image}`}
+                        unoptimized
+                        className='ml-3'
+                      />
+                    </motion.div>
+                  )}
+              </motion.div>
+            ))}
+            <IgniteBg style={'relative md:h-[351px] right-[47px] md-w-[351px] top-[-28px]'} color={backgroundColorSVG} size={351} />
           </motion.div>
           <motion.div
             initial={{ scale: 0 }}
@@ -221,6 +218,16 @@ const Services = () => {
             `}
           ></motion.div>
                     <motion.div
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            exit={{ x: 1000 }}
+            transition={{ type: 'spring', stiffness:120, duration: .1, ease: 'easeIn', delay: .9 }}
+            className={`top-36 bg-no-repeat invisible absolute md:block bg-cover
+            bg-top w-full md:w-[384px] h-[107px] md:h-[289px]
+            bg-[url('/assets/images/bg-people-06.png')] mt-24 md:mt-0 md:-mr-[63px]
+            `}
+          ></motion.div>
+                              <motion.div
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             exit={{ x: 1000 }}
