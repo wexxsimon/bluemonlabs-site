@@ -2,8 +2,8 @@ export const servicesData = [
   {
     id: 1,
     titulo: "Desenvolvemos estratégias de marketing digital únicas e personalizadas",
-    descricao: "Compreendemos que cada empresa é única e, portanto, requer uma abordagem distinta. Levamos em consideração seus objetivos de negócios, o perfil do seu público-alvo e o orçamento disponível para criar um plano de ação eficaz. Nossa estratégia envolve uma análise detalhada do mercado, estudo da concorrência, identificação de palavras-chave relevantes e criação de conteúdo atraente que ressoe com seu público.",
-    beneficios: "Adotar uma estratégia de marketing digital personalizada traz inúmeros benefícios. Ela permite que você se conecte com seu público-alvo de maneira mais eficaz, aumente a visibilidade da sua marca, melhore o engajamento do cliente e impulsione as vendas. Além disso, uma estratégia bem planejada pode ajudar a otimizar o retorno sobre o investimento em marketing digital.",
+    descricao: "Nossa estratégia envolve uma análise detalhada do mercado, estudo da concorrência, identificação de palavras-chave relevantes e criação de conteúdo atraente que ressoe com seu público.",
+    beneficios: "Adotar uma estratégia digital personalizada permite conexões com seu público-alvo de maneira mais eficaz. Além disso, uma estratégia bem planejada pode ajudar a otimizar o retorno sobre o investimento em marketing digital.",
     altText: "Ícone Estratégia",
     image: "digital-campaign.png",
     alternativeTitle: "Estrategista de Marketing Digital"
