@@ -37,7 +37,8 @@ const config: Config = {
         full: 'transparent'
       },
       white: {
-        100: '#ffffff'
+        100: '#ffffff',
+        semi: '#ffffffab'
       },
       black: {
         50: '#f6f6f6',

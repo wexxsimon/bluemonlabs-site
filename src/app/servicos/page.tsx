@@ -119,16 +119,45 @@ const Services = () => {
               flex content-end justify-end
               md:w-[35%] md:h-auto bg-sail-200 pt-12 md:pt-16 xl:pt-24 rounded-br-[250px] rounded-tr-[250px]`}
         >
+<motion.div
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  exit={{ opacity: 0 }}
+  transition={{ duration: 1 }}
+  className={`sticky top-36 bg-no-repeat hidden md:block bg-cover bg-top w-full md:w-[282px] h-[107px] md:h-[282px] bg-[url('/assets/images/${backgroundImage}')] mt-24 md:mt-0 rounded-full`}
+>
+  {services.map((service, index) => (
+    <motion.div
+      key={service.id}
+      ref={el => {
+        articleRefs.current[index] = el;
+      }}
+      data-id={service.id}
+      className={`${centerIndex === index ? 'flex' : 'hidden' } relative w-[282px] h-[282px] flex justify-center items-center`}
+    >
+        {centerIndex === index && (
           <motion.div
-            initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 1 }}
-            className={`sticky top-36 bg-no-repeat hidden md:block bg-cover
-            bg-top w-full md:w-[282px] h-[107px] md:h-[282px]
-            bg-[url('/assets/images/${backgroundImage}')] mt-24 md:mt-0 rounded-full`}
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            exit={{ scale: 0 }}
+            transition={{ type: 'spring', stiffness: 120, duration: 0.1, ease: 'easeIn', delay: .2 }}
+            className={`absolute bg-white-semi p-5 rounded-full w-[250px] h-[250px] flex justify-center items-center`}
           >
-            <IgniteBg style={'relative md:h-[351px] right-[47px] md-w-[351px] top-[-30px]'} color={backgroundColorSVG} size={351} />
+            <Image
+              alt={service.altText}
+              width={51}
+              height={51}
+              src={`/assets/images/icons/${service.image}`}
+              unoptimized
+            />
+          </motion.div>
+        )}
+    </motion.div>
+  ))}
+
+
+  <IgniteBg style={'relative md:h-[351px] right-[47px] md-w-[351px] top-[-1436px]'} color={backgroundColorSVG} size={351} />
+
           </motion.div>
           <motion.div
             initial={{ scale: 0 }}
