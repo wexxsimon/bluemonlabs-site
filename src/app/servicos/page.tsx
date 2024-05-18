@@ -145,10 +145,11 @@ const Services = () => {
           >
             <Image
               alt={service.altText}
-              width={51}
-              height={51}
+              width={81}
+              height={81}
               src={`/assets/images/icons/${service.image}`}
               unoptimized
+              className='ml-3'
             />
           </motion.div>
         )}
