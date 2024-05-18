@@ -4,6 +4,7 @@ import Image from "next/image";
 import UseScrollPosition from '../hooks/useScrollPosition';
 import { AnimatePresence, motion } from 'framer-motion';
 import { servicesData } from '../data/services';
+import IgniteBg from '../components/ds/IgniteBg';
 
 interface services {
   id: number;
@@ -17,8 +18,9 @@ interface services {
 
 const Services = () => {
   const [services, setServices] = useState<services[]>([]);
-  const [backgroundImage, setBackgroundImage] = useState('bg-space-window-3d.webp');
+  const [backgroundImage, setBackgroundImage] = useState('bg-people-01.png');
   const [backgroundColor, setBackgroundColor] = useState('bg-gulf-blue-950');
+  const [backgroundColorSVG, setBackgroundColorSVG] = useState('#0e0f52');
   const articleRefs = useRef<(HTMLElement | null)[]>([]);
   const scrollY = UseScrollPosition()
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -55,21 +57,23 @@ const Services = () => {
     const totalScrollHeight = document.documentElement.scrollHeight - viewportHeight;
     const scrollPercentage = (scrollPosition / totalScrollHeight) * 100;
 
-    const createScrollSetting = (start: number, end: number, color: string, image: string) => ({ start, end, color, image });
+    const createScrollSetting = (start: number, end: number, color: string, image: string, svgColor: string) => ({ start, end, color, image, svgColor });
 
 
     const scrollSettings = [
-      createScrollSetting(0, 16.67, 'bg-gulf-blue-950', 'bg-space-window-3d.webp'),
-      createScrollSetting(16.67, 33.33, 'bg-color-selector-ads', 'bg-space-window-3d.webp'),
-      createScrollSetting(33.33, 50, 'bg-color-selector-ads', 'bg-space-window-3d.webp'),
-      createScrollSetting(50, 66.67, 'bg-color-selector-seo', 'bg-space-window-3d.webp'),
-      createScrollSetting(66.67, 83.33, 'bg-color-selector-social-media', 'bg-space-window-3d.webp'),
-      createScrollSetting(83.33, 100, 'bg-color-selector-data-cience', 'bg-space-window-3d.webp'),
+      createScrollSetting(0, 9, 'bg-gulf-blue-950', 'bg-people-01.png', '#0e0f52'),
+      createScrollSetting(9, 28, 'bg-color-selector-ads', 'bg-people-02.png', '#14146b'),
+      createScrollSetting(28, 48, 'bg-color-selector-social-media', 'bg-people-06.png', '#2529c6'),
+      createScrollSetting(48, 67, 'bg-color-selector-seo', 'bg-people-03.png', '#191e96'),
+      createScrollSetting(67, 86, 'bg-color-selector-social-media', 'bg-people-05.png', '#2529c6'),
+      createScrollSetting(86, 100, 'bg-color-selector-data-cience', 'bg-people-04.png', '#39adf7'),
     ];
     scrollSettings.forEach(setting => {
       if (scrollPercentage >= setting.start && scrollPercentage < setting.end) {
+        console.log('porcentagem', scrollPercentage)
         setBackgroundColor(setting.color);
         setBackgroundImage(setting.image);
+        setBackgroundColorSVG(setting.svgColor)
       }
     });
   };
@@ -98,7 +102,7 @@ const Services = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll,);
   }, [centerIndex]);
 
   useEffect(() => {
@@ -116,13 +120,35 @@ const Services = () => {
               md:w-[35%] md:h-auto bg-sail-200 pt-12 md:pt-16 xl:pt-24 rounded-br-[250px] rounded-tr-[250px]`}
         >
           <motion.div
+            initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 1 }}
+            className={`sticky top-36 bg-no-repeat hidden md:block bg-cover
+            bg-top w-full md:w-[282px] h-[107px] md:h-[282px]
+            bg-[url('/assets/images/${backgroundImage}')] mt-24 md:mt-0 rounded-full`}
+          >
+            <IgniteBg style={'relative md:h-[351px] right-[47px] md-w-[351px] top-[-30px]'} color={backgroundColorSVG} size={351} />
+          </motion.div>
+          <motion.div
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             exit={{ x: 1000 }}
             transition={{ type: 'spring', stiffness:120, duration: .1, ease: 'easeIn', delay: .9 }}
-            className={`sticky top-36 bg-no-repeat hidden md:block bg-cover
+            className={`top-36 bg-no-repeat invisible absolute md:block bg-cover
             bg-top w-full md:w-[384px] h-[107px] md:h-[289px]
-            bg-[url('/assets/images/${backgroundImage}')] mt-24 md:mt-0 md:-mr-[23px]`}
+            bg-[url('/assets/images/bg-client-3d-crop.webp')] mt-24 md:mt-0 md:-mr-[63px]
+            `}
+          >
+          <motion.div
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            exit={{ x: 1000 }}
+            transition={{ type: 'spring', stiffness:120, duration: .1, ease: 'easeIn', delay: .9 }}
+            className={`top-36 bg-no-repeat invisible absolute md:block bg-cover
+            bg-top w-full md:w-[384px] h-[107px] md:h-[289px]
+            bg-[url('/assets/images/bg-people-01.png')] mt-24 md:mt-0 md:-mr-[63px]
+            `}
           ></motion.div>
           <motion.div
             initial={{ scale: 0 }}
@@ -131,9 +157,50 @@ const Services = () => {
             transition={{ type: 'spring', stiffness:120, duration: .1, ease: 'easeIn', delay: .9 }}
             className={`top-36 bg-no-repeat invisible absolute md:block bg-cover
             bg-top w-full md:w-[384px] h-[107px] md:h-[289px]
-            bg-[url('/assets/images/bg-space-window-3d23.webp')] mt-24 md:mt-0 md:-mr-[63px]
+            bg-[url('/assets/images/bg-people-02.png')] mt-24 md:mt-0 md:-mr-[63px]
             `}
           ></motion.div>
+        <motion.div
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            exit={{ x: 1000 }}
+            transition={{ type: 'spring', stiffness:120, duration: .1, ease: 'easeIn', delay: .9 }}
+            className={`top-36 bg-no-repeat invisible absolute md:block bg-cover
+            bg-top w-full md:w-[384px] h-[107px] md:h-[289px]
+            bg-[url('/assets/images/bg-people-03.png')] mt-24 md:mt-0 md:-mr-[63px]
+            `}
+          ></motion.div>
+          <motion.div
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            exit={{ x: 1000 }}
+            transition={{ type: 'spring', stiffness:120, duration: .1, ease: 'easeIn', delay: .9 }}
+            className={`top-36 bg-no-repeat invisible absolute md:block bg-cover
+            bg-top w-full md:w-[384px] h-[107px] md:h-[289px]
+            bg-[url('/assets/images/bg-people-04.png')] mt-24 md:mt-0 md:-mr-[63px]
+            `}
+          ></motion.div>
+          <motion.div
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            exit={{ x: 1000 }}
+            transition={{ type: 'spring', stiffness:120, duration: .1, ease: 'easeIn', delay: .9 }}
+            className={`top-36 bg-no-repeat invisible absolute md:block bg-cover
+            bg-top w-full md:w-[384px] h-[107px] md:h-[289px]
+            bg-[url('/assets/images/bg-people-05.png')] mt-24 md:mt-0 md:-mr-[63px]
+            `}
+          ></motion.div>
+                    <motion.div
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            exit={{ x: 1000 }}
+            transition={{ type: 'spring', stiffness:120, duration: .1, ease: 'easeIn', delay: .9 }}
+            className={`top-36 bg-no-repeat invisible absolute md:block bg-cover
+            bg-top w-full md:w-[384px] h-[107px] md:h-[289px]
+            bg-[url('/assets/images/bg-people-06.png')] mt-24 md:mt-0 md:-mr-[63px]
+            `}
+          ></motion.div>
+          </motion.div>
         </motion.div>
         <div className="md:w-[65%] px-6 md:px-12 xl:px-24">
         <div className="w-full md:max-w-[437px] md:mb-6 md:mt-12 xl:mt-24">
