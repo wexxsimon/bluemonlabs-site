@@ -66,7 +66,7 @@ const Services = () => {
       createScrollSetting(28, 48, 'bg-color-selector-social-media', 'bg-people-06.png ', '#2529c6'),
       createScrollSetting(48, 67, 'bg-color-selector-seo', 'bg-people-03.png ', '#191e96'),
       createScrollSetting(67, 86, 'bg-color-selector-social-media', 'bg-people-05.png ', '#2529c6'),
-      createScrollSetting(86, 100, 'bg-color-selector-data-cience', 'bg-people-04.png ', '#39adf7'),
+      createScrollSetting(86, 100, 'bg-color-selector-data-cience', 'bg-people-04.png ', '#1e9be9'),
     ];
     scrollSettings.forEach(setting => {
       if (scrollPercentage >= setting.start && scrollPercentage < setting.end) {
