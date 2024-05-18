@@ -62,11 +62,11 @@ const Services = () => {
 
     const scrollSettings = [
       createScrollSetting(0, 9, 'bg-gulf-blue-950', 'bg-people-01.png', '#0e0f52'),
-      createScrollSetting(9, 28, 'bg-color-selector-ads', 'bg-people-02.png', '#14146b'),
-      createScrollSetting(28, 48, 'bg-color-selector-social-media', 'bg-people-06.png', '#2529c6'),
-      createScrollSetting(48, 67, 'bg-color-selector-seo', 'bg-people-03.png', '#191e96'),
-      createScrollSetting(67, 86, 'bg-color-selector-social-media', 'bg-people-05.png', '#2529c6'),
-      createScrollSetting(86, 100, 'bg-color-selector-data-cience', 'bg-people-04.png', '#39adf7'),
+      createScrollSetting(9, 28, 'bg-color-selector-ads', 'bg-people-02.png ', '#14146b'),
+      createScrollSetting(28, 48, 'bg-color-selector-social-media', 'bg-people-06.png ', '#2529c6'),
+      createScrollSetting(48, 67, 'bg-color-selector-seo', 'bg-people-03.png ', '#191e96'),
+      createScrollSetting(67, 86, 'bg-color-selector-social-media', 'bg-people-05.png ', '#2529c6'),
+      createScrollSetting(86, 100, 'bg-color-selector-data-cience', 'bg-people-04.png ', '#39adf7'),
     ];
     scrollSettings.forEach(setting => {
       if (scrollPercentage >= setting.start && scrollPercentage < setting.end) {
@@ -133,7 +133,7 @@ const Services = () => {
         articleRefs.current[index] = el;
       }}
       data-id={service.id}
-      className={`${centerIndex === index ? 'flex' : 'hidden' } relative w-[282px] h-[282px] flex justify-center items-center`}
+      className={`${centerIndex === index ? 'flex' : 'hidden' } absolute w-[282px] h-[282px] flex justify-center items-center`}
     >
         {centerIndex === index && (
           <motion.div
@@ -156,7 +156,7 @@ const Services = () => {
   ))}
 
 
-  <IgniteBg style={'relative md:h-[351px] right-[47px] md-w-[351px] top-[-1436px]'} color={backgroundColorSVG} size={351} />
+  <IgniteBg style={'relative md:h-[351px] right-[47px] md-w-[351px] top-[-28px]'} color={backgroundColorSVG} size={351} />
 
           </motion.div>
           <motion.div
