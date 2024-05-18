@@ -227,7 +227,7 @@ const Services = () => {
             bg-[url('/assets/images/bg-people-06.png')] mt-24 md:mt-0 md:-mr-[63px]
             `}
           ></motion.div>
-                              <motion.div
+          <motion.div
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             exit={{ x: 1000 }}
@@ -235,6 +235,16 @@ const Services = () => {
             className={`top-36 bg-no-repeat invisible absolute md:block bg-cover
             bg-top w-full md:w-[384px] h-[107px] md:h-[289px]
             bg-[url('/assets/images/bg-people-06.png')] mt-24 md:mt-0 md:-mr-[63px]
+            `}
+          ></motion.div>
+          <motion.div
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            exit={{ x: 1000 }}
+            transition={{ type: 'spring', stiffness:120, duration: .1, ease: 'easeIn', delay: .9 }}
+            className={`top-36 bg-no-repeat invisible absolute md:block bg-cover
+            bg-top w-full md:w-[384px] h-[107px] md:h-[289px]
+            bg-[url('/assets/images/bg-moon.webp')] mt-24 md:mt-0 md:-mr-[63px]
             `}
           ></motion.div>
           </motion.div>
